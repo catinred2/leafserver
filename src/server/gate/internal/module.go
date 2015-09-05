@@ -1,11 +1,12 @@
 package internal
 
 import (
-	"github.com/name5566/leaf/gate"
-	"github.com/name5566/leaf/log"
 	"server/conf"
 	"server/game"
 	"server/msg"
+
+	"github.com/name5566/leaf/gate"
+	"github.com/name5566/leaf/log"
 )
 
 type Module struct {
@@ -23,7 +24,7 @@ func (m *Module) OnInit() {
 		LittleEndian:    conf.LittleEndian,
 		AgentChanRPC:    game.ChanRPC,
 	}
-
+	log.Debug("Gate:Oninit")
 	switch conf.Encoding {
 	case "json":
 		m.TCPGate.JSONProcessor = msg.JSONProcessor
